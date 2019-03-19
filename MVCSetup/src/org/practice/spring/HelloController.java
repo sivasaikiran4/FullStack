@@ -1,6 +1,10 @@
 package org.practice.spring;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,12 +18,22 @@ public class HelloController {
 		ModelAndView model = new ModelAndView("hello"); 
 		model.addObject("firstName",userInfo.getFirstName());
 		model.addObject("lastName",userInfo.getLastName());
+		model.addObject("gender",userInfo.getGender());
+		model.addObject("country",userInfo.getCountry());
+		model.addObject("text",userInfo.getText());
+		model.addObject("visit",userInfo.getVisit());
 		return model;
 	}
 	
 	@RequestMapping("/")
-	public ModelAndView homepage(){
-    ModelAndView model = new ModelAndView("index","info", new Information());   
-	return model;
+	//public ModelAndView homepage(){
+	public String homepage(Model model){
+    //ModelAndView model = new ModelAndView("index","info", new Information());
+		model.addAttribute("info",new Information());
+    Map<String,String> country= new LinkedHashMap<String,String>();
+    country.put("USA","USA");
+    country.put("canada","canada"); country.put("india","india");
+    model.addAttribute("country",country);
+	return "index";
 	}
 }

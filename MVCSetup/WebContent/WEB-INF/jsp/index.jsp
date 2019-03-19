@@ -17,6 +17,21 @@
 	<p/>
 	Last Name : <form:input path="lastName"/>
 	<p/>
+	
+	<p> Gender : <form:radiobutton path="gender" value="male"/>male
+	<form:radiobutton path="gender" value="female"/>female
+	</p>
+	<p>Country : <form:select path="country" items="${country}">
+	               
+	</form:select></p>
+	
+	<p>Visited Countries : <form:checkbox path="visit" value="USA"/>USA
+	 <form:checkbox path="visit" value="Canada"/>Canada
+	  <form:checkbox path="visit" value="EU"/>EU
+	  <form:checkbox path="visit" value="India"/>India</p>
+	  <p>Your Expreience : 
+	  <form:textarea path="text"/></p>
+
 	<input type="submit" Value="Submit">
 	</form:form>
 </body>

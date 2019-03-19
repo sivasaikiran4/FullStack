@@ -8,7 +8,13 @@
 <title>Hello</title>
 </head>
 <body>
-Hello ${firstName} ${lastName} 
+Hello ${firstName} ${lastName} <br>
+Gender : ${gender}<br>
+Country :${country}<br>
+Visted Countries :
+<ul><c:forEach items="${visit}" var="trip">
+<li>${trip}</li></c:forEach></ul>
+Your Wrote : "${text}"
 
 </body>
 </html>
