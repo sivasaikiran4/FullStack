@@ -7,13 +7,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>HomePage</title>
+<link rel="stylesheet" type="text/css" 
+href="${pageContext.request.contextPath}/files/css/style.css">
 </head>
 <body>
 	<h4>Submit your information</h4>
 	<hr/>
 	<form:form action="hello" modelAttribute="info">
 	
-	First Name : <form:input path="firstName"/>
+	First Name : <form:input path="firstName" required="true"/>
 	<p/>
 	Last Name : <form:input path="lastName"/>
 	<p/>
@@ -30,7 +32,7 @@
 	  <form:checkbox path="visit" value="EU"/>EU
 	  <form:checkbox path="visit" value="India"/>India</p>
 	  <p>Your Expreience : 
-	  <form:textarea path="text"/></p>
+	  <form:textarea path="text" placeholder="Enter your text here...."/></p>
 
 	<input type="submit" Value="Submit">
 	</form:form>

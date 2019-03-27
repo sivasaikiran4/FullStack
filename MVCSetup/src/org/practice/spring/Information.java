@@ -1,7 +1,11 @@
 package org.practice.spring;
 
+import javax.validation.constraints.Size;
+
 public class Information {
-	private String firstName,lastName,gender;
+	@Size(min=3 ,max=8)
+	private String firstName;
+		private String lastName,gender;
 	private String country,text,visit[];
 
 	public String[] getVisit() {

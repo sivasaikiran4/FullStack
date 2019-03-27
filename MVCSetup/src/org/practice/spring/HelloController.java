@@ -3,8 +3,11 @@ package org.practice.spring;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HelloController {
 
 	@RequestMapping("/hello")
-	public ModelAndView helloWorld(@ModelAttribute("info") Information userInfo){
+	public ModelAndView helloWorld(@Valid Information userInfo,BindingResult result){
 		 
 		ModelAndView model = new ModelAndView("hello"); 
 		model.addObject("firstName",userInfo.getFirstName());
@@ -22,6 +25,8 @@ public class HelloController {
 		model.addObject("country",userInfo.getCountry());
 		model.addObject("text",userInfo.getText());
 		model.addObject("visit",userInfo.getVisit());
+		if(result.hasErrors())
+			System.out.println("has Errors");
 		return model;
 	}
 	
