@@ -1,0 +1,36 @@
+package com.bcj.memberportal.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.bcj.memberportal.model.Member;
+
+
+
+
+
+@Transactional
+public class MemberDao {
+
+	@Autowired
+	private SessionFactory sessionFactory;
+	 
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+	
+	public int createMember(Member mmbr) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(mmbr);
+		return mmbr.getId();
+	}
+
+	public Member getMemberById(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Member  mmbr = (Member) session.get(Member.class, new Integer(id));
+		return mmbr;
+	}
+
+}

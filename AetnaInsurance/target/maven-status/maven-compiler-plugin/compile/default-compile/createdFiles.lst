@@ -1,0 +1,5 @@
+com\bcj\memberportal\service\MemberService.class
+com\bcj\memberportal\model\Address.class
+com\bcj\memberportal\dao\MemberDao.class
+com\bcj\memberportal\model\Member.class
+com\bcj\memberportal\service\MemberImpl.class

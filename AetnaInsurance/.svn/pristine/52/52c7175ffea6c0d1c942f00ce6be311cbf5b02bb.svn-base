@@ -1,0 +1,18 @@
+package com.bcj.memberportal.service;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+import com.bcj.memberportal.model.Member;
+
+
+
+@WebService
+public interface MemberService {
+
+	@WebMethod
+	public int createMember(Member mmbr);
+	
+	@WebMethod
+	public Member getMemberById(int id);
+}
